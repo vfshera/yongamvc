@@ -26,6 +26,7 @@ app.set("views", __dirname + "/views/pages");
 /*
  *MIDDLEWARES
  */
+
 require("./middlewares")(app);
 
 /*
