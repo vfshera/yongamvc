@@ -1,0 +1,33 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  min-height: 500px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  background-color: #1572a1;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  padding: 0 5px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
