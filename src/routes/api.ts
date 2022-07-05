@@ -1,14 +1,10 @@
 const express = require("express");
-const { ProductController, UserContoller } = require("../controllers");
+import { ProductController, UserContoller } from "../controllers";
 
 const router = express.Router();
-
-router.get("/", (req, res) => {
-  res.json({ message: "Welcome" });
-});
 
 router.get("/products", ProductController.allProducts);
 
 router.get("/users", UserContoller.allUsers);
 
-module.exports = router;
+export default router;

@@ -1,12 +1,14 @@
-const express = require("express");
+import express from "express";
+import dotenv from "dotenv";
+
+import middlewares from "./middlewares";
+import routes from "./routes";
+
+import { create } from "express-handlebars";
+
 const app = express();
-require("dotenv").config();
 
-const { create } = require("express-handlebars");
-
-/*
- *SET UP
- */
+dotenv.config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,15 +26,10 @@ app.set("view engine", "hbs");
 app.set("views", __dirname + "/views/pages");
 
 /*
- *MIDDLEWARES
+ *MIDDLEWARES & ROUTES
  */
+middlewares(app);
 
-require("./middlewares")(app);
-
-/*
- *
- *ROUTES
- */
-require("./routes")(app);
+routes(app);
 
 app.listen(5000, () => console.log(`Express at http://localhost:5000`));

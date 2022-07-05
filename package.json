@@ -1,33 +1,30 @@
 {
-  "name": "yonga-mvc",
+  "name": "yonga",
   "version": "1.0.0",
-  "description": "Express MVC framework with Typescript & hbs",
-  "main": "server.js",
+  "description": "Personal Express MVC with Typescript",
+  "main": "src/app.ts",
   "scripts": {
-    "dev": "nodemon ."
+    "start": "yarn build && nodemon dist/app.js",
+    "dev": "nodemon src/app.ts",
+    "build": "yarn clean && tsc && yarn copy-files",
+    "copy-files": "copyfiles  .env  dist && copyfiles -u 1 src/views/**/* src/public/**/* dist  && echo 'files copied!'",
+    "clean": "rimraf dist && echo 'dist folder removed!' "
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FranklinShera/yongamvc.git"
-  },
-  "keywords": [
-    "Express",
-    "MVC",
-    "Handlebars"
-  ],
-  "author": "Franklin Shera",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.14",
+    "copyfiles": "^2.4.1",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
   },
   "dependencies": {
     "dotenv": "^15.0.0",
     "express": "^4.17.2",
-    "express-handlebars": "^6.0.2",
-    "helmet": "^5.0.2"
-  },
-  "bugs": {
-    "url": "https://github.com/FranklinShera/yongamvc/issues"
-  },
-  "homepage": "https://github.com/FranklinShera/yongamvc#readme"
+    "express-handlebars": "^6.0.2"
+  }
 }
