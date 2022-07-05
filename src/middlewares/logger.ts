@@ -4,12 +4,13 @@ import config from "../config";
 const { appConfig } = config;
 
 const logger = (req: Request, res: Response, next: NextFunction) => {
-  if (appConfig.logging != "" && appConfig.logging.toUpperCase() === "TRUE") {
+  if (appConfig.logging) {
     const time = new Date();
     console.log(
-      req.method,
-      req.url,
-      `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
+      "\n",
+      `${req.method}  ${
+        req.url
+      }  ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
     );
   }
 

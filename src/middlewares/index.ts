@@ -1,13 +1,10 @@
-import { Request, Response, NextFunction } from "express";
-
+import { Request, Response, NextFunction, Express } from "express";
+import helmet from "helmet";
 import logger from "./logger";
-const middlewares = [logger];
+const middlewares = [helmet(), logger];
 
-const attach = (app: any) => {
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    console.log("Index Middlewares");
-    next();
-  });
+const attach = (app: Express) => {
+  app.use(middlewares);
 };
 
 export default attach;
